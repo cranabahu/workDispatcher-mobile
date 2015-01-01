@@ -1,0 +1,364 @@
+<template name="userNewTask" xmlns="http://www.w3.org/1999/html">
+    <div class="bar bar-header login-background" style="position: fixed">
+        <button class="back button  button-icon">
+            <!--<i class="ion-arrow-left-a left-arrow-icon"></i> -->
+            <a class="button icon-left ion-chevron-left button-clear">
+                <label style="font-weight: bold; font-size: 120%">Back</label>
+            </a>
+        </button>
+        <h1 class="title header-font" style="font-size:170%">Task List</h1>
+        {{>optionIcon}}
+    </div>
+
+    <div class="list list-inset header-margin card-margin">
+        <ul>
+            {{#each task}}
+                <li class="itemTask {{selectedClass}} item item-button-right embossed">
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Task Id => {{taskId}}</label>
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Priority => {{severity}}</label>
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Part => {{repairPart}}</label>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="detailTask">
+  {{#each viewTask}}
+      <div class="left-arrow-p1 bar bar-header login-background" style="position: fixed">
+          <button class="back button  button-icon">
+              <!--<i class="ion-arrow-left-a left-arrow-icon"></i>-->
+              <a class="button icon-left ion-chevron-left button-clear">
+                  <label style="font-weight: bold; font-size: 120%">Back</label>
+              </a>
+          </button>
+          <h1 class="title header-font" style="font-size:170%">Task-{{taskId}}</h1>
+          {{>optionIcon}}
+      </div>
+      <div class="list card header-margin card-margin">
+          <div class="item item-avatar ">
+              <img src="img/logo3.png">
+              <h2 style="font-weight: bold;font-size:170%">Task Detail</h2>
+          </div>
+          <div class="item item-body" aria-disabled="true">
+              <!--<img class="full-image" src="delorean.jpg">-->
+              <table class="page-body">
+                  <tr>
+                      <td>
+                          <label class="topic-header">Detail</label>
+                          <div class="text">
+                              <label> Task Id:</label>
+                              <input readonly placeholder="Text Area" type="text" value="{{taskId}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Severity:</label>
+                              <input readonly placeholder="Text Area" type="text" value="{{severity}}">
+                          </div>
+
+                          <div class="text">
+                              <label for="repairPart"> Repair Part:</label>
+                              <input readonly placeholder="Text Area" type="text" id="repairPart" value="{{repairPart}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Description:</label>
+                              <textarea readonly placeholder="Text Area" rows="5" >{{desc}}</textarea>
+                          </div>
+
+                          <div class="text">
+                              <label> Due Date:</label>
+                              <input readonly placeholder="Text Area" type="text"  value="{{dueDate}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Assignee:</label>
+                              <input readonly placeholder="Text Area" type="text"  value="{{name}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Status:</label>
+                              <input readonly placeholder="Text Area" type="text"  value="{{status}}">
+                          </div>
+                      </td>
+                      <td>
+                          <label class="topic-header">Contact</label>
+
+                          <div class="text">
+                              <label> Customer:</label>
+                              <input readonly placeholder="Text Area" type="text"  value="{{customer}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Phone:</label>
+                              <input readonly placeholder="Text Area" type="text"  value="{{contact}}">
+                          </div>
+
+                          <div class="text">
+                              <label> Location:</label>
+                              <textarea readonly placeholder="Text Area" rows="4">{{location}}</textarea>
+                          </div>
+                      </td>
+                  </tr>
+              </table>
+
+            {{#if photo}}
+                <div>
+                    <img src={{photo}} />
+                </div>
+            {{/if}}
+          </div>
+      </div>
+      <div class="item tabs tabs-secondary tabs-icon-left footer">
+          <div class="tab-item button-margin">
+              <button class="accept button button-balanced button-full button-margin">
+                  Accept
+              </button>
+          </div>
+      </div>
+  {{/each}}
+</template>
+
+<template name="userAcceptedTask">
+    <div class="bar bar-header login-background" style="position: fixed">
+        <button class="back button  button-icon">
+            <!--<i class="ion-arrow-left-a left-arrow-icon"></i>-->
+            <a class="button icon-left ion-chevron-left button-clear">
+                <label style="font-weight: bold; font-size: 120%">Back</label>
+            </a>
+        </button>
+        <h1 class="title header-font" style="font-size:170%">Accepted Task List</h1>
+        {{>optionIcon}}
+    </div>
+
+    <div class="list list-inset header-margin card-margin">
+        <ul>
+            {{#each task}}
+                <li class="itemTask {{selectedClass}} item item-button-right embossed">
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Task Id => {{taskId}}</label>
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Priority => {{severity}}</label>
+                    <label style="font-size:130%; display: inline; width: 20%; margin-left: 13%; text-align: left">Part => {{repairPart}}</label>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="workingTask">
+{{#each viewTask}}
+    <div class="left-arrow-p1 bar bar-header login-background" style="position: fixed">
+        <button class="back button  button-icon">
+            <!--<i class="ion-arrow-left-a left-arrow-icon"></i>-->
+            <a class="button icon-left ion-chevron-left button-clear">
+                <label style="font-weight: bold; font-size: 120%">Back</label>
+            </a>
+        </button>
+        <h1 class="title header-font" style="font-size:170%">Task-{{taskId}}</h1>
+        {{>optionIcon}}
+    </div>
+    <div class="list card header-margin card-margin">
+        <div class="item item-avatar">
+            <img src="img/logo3.png">
+            <h2 style="font-weight: bold;font-size:170%">Task Detail</h2>
+        </div>
+        <div class="item item-body" aria-disabled="true">
+            <!--<img class="full-image" src="delorean.jpg">-->
+            <table class="page-body">
+                <tr>
+                    <td>
+                        <label class="topic-header">Detail</label>
+                        <div class="text">
+                            <label> Task Id:</label>
+                            <input readonly placeholder="Text Area" type="text" value="{{taskId}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Severity:</label>
+                            <input readonly placeholder="Text Area" type="text" value="{{severity}}">
+                        </div>
+
+                        <div class="text">
+                            <label for="repairPart"> Repair Part:</label>
+                            <input readonly placeholder="Text Area" type="text" id="repairPart" value="{{repairPart}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Description:</label>
+                            <textarea readonly placeholder="Text Area" rows="5" >{{desc}}</textarea>
+                        </div>
+
+                        <div class="text">
+                            <label> Due Date:</label>
+                            <input readonly placeholder="Text Area" type="text"  value="{{dueDate}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Assignee:</label>
+                            <input readonly placeholder="Text Area" type="text"  value="{{name}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Status:</label>
+                            <input readonly placeholder="Text Area" type="text"  value="{{status}}">
+                        </div>
+
+
+                    </td>
+                    <td>
+                        <label class="topic-header">Contact</label>
+
+                        <div class="text">
+                            <label> Customer:</label>
+                            <input readonly placeholder="Text Area" type="text"  value="{{customer}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Phone:</label>
+                            <input readonly placeholder="Text Area" type="text"  value="{{contact}}">
+                        </div>
+
+                        <div class="text">
+                            <label> Location:</label>
+                            <textarea readonly placeholder="Text Area" rows="4">{{location}}</textarea>
+                        </div>
+
+                        <label class="topic-header">Your Inputs</label>
+
+                        <div class="text">
+                            <label> Start Time:</label>
+                            <input placeholder="Estimated Time" type="time" id="startTime" value="{{startTime}}">
+                        </div>
+                        <div class="text">
+                            <label> Estimated End Time:</label>
+                            <input placeholder="Estimated Time" type="time" id="estimatedEndTime" value="{{completionTime}}">
+                        </div>
+                        <div class="text">
+                            <label>Comment:</label>
+                            <textarea placeholder="Enter your comments..." rows="5" id="comment">{{comment}}</textarea>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="item tabs tabs-secondary tabs-icon-left footer">
+        <div class="tab-item button-margin">
+            <button class="updateTask button button-block button-positive">
+                Update
+            </button>
+        </div>
+        <div class="tab-item button-margin">
+            <button class="viewRoute button button-block button-energized">
+                View Route
+            </button>
+        </div>
+        <div class="tab-item button-margin">
+            <button class="viewAttachments button button-block button-royal">
+                Attachments
+            </button>
+        </div>
+        <div class="tab-item button-margin">
+            <button class="complete button button-block button-balanced">
+                Complete
+            </button>
+        </div>
+    </div>
+
+{{/each}}
+</template>
+
+<template name="contact">
+    {{#each viewTask}}
+        <div class="left-arrow-p1 bar bar-header login-background" style="position: fixed">
+            <button class="back button  button-icon">
+                <!--<i class="ion-arrow-left-a left-arrow-icon"></i>-->
+                <a class="button icon-left ion-chevron-left button-clear">
+                    <label style="font-weight: bold; font-size: 120%">Back</label>
+                </a>
+            </button>
+            <h1 class="title header-font" style="font-size:170%">Task - {{taskId}} - Contact</h1>
+            {{>optionIcon}}
+        </div>
+        <div class="list card header-margin card-margin">
+            <div class="item">
+                <h2>{{customer}}</h2>
+                <p>{{contact}}</p>
+            </div>
+
+            <div class="item item-body">
+                <div id="map-canvas"></div>
+                <div id="directions-panel"></div>
+            </div>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left"  style="position: fixed">
+            <input type="button" class="renderMap button" value="Load Map">
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left footer">
+            <div class="tab-item button-margin">
+                <button class="renderMap complete button button-block button-balanced">
+                    View Map
+                </button>
+            </div>
+        </div>
+    {{/each}}
+</template>
+
+<template name="attachments">
+    {{#each viewTask}}
+        <div class="left-arrow-p1 bar bar-header login-background" style="position: fixed">
+            <button class="back button  button-icon">
+                <!--<i class="ion-arrow-left-a left-arrow-icon"></i>-->
+                <a class="button icon-left ion-chevron-left button-clear">
+                    <label style="font-weight: bold; font-size: 120%">Back</label>
+                </a>
+            </button>
+            <h1 class="title header-font" style="font-size:170%">Task - {{taskId}} - Attachments</h1>
+            {{>optionIcon}}
+        </div>
+        <div class="list card header-margin card-margin">
+            <div class="item item-body" aria-disabled="true">
+                <div class="item item-body">
+                    {{#each photos}}
+                        <div style="margin-left: 31%">
+                            <img src={{picture}} />
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left"  style="position: fixed">
+            <input type="button" class="renderMap button" value="Load Map">
+        </div>
+        <div class="item tabs tabs-secondary tabs-icon-left footer">
+            <div class="tab-item button-margin">
+                <button class="takePic complete button button-block button-balanced">
+                    Add Picture
+                </button>
+            </div>
+        </div>
+    {{/each}}
+</template>
+
+<template name="tabsButtons">
+    <div class="tabs tabs-icon-top"  style="position: fixed">
+        <a class="tab-item">
+            <i class="icon ion-home"></i>
+            Home
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-star"></i>
+            Favorites
+        </a>
+        <a class="tab-item">
+            <i class="icon ion-gear-a"></i>
+            Settings
+        </a>
+    </div>
+</template>
+
+<template name="optionIcon">
+    <button class="button button-icon">
+        <i class="icon ion-navicon right-arrow-icon"></i>
+        <i class="fa fa-area-chart"></i>
+    </button>
+</template>

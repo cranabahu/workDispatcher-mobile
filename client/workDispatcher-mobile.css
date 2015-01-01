@@ -1,0 +1,217 @@
+/* CSS declarations go here */
+
+/*html *{
+    font-size: 200%;
+}*/
+
+.login-background {
+    background: url("img/background.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.btn-centered{
+    margin-top:10px;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+}
+
+.logo{
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.header-margin{
+    margin-top: 5%;
+}
+
+.selected{
+    background-color: #5e7ff8;
+    color: #ffffff;
+}
+
+.header-font{
+    color: white;
+    font-weight: bold;
+}
+
+table.overview {
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 50%;
+}
+
+table.overview td{
+    border: 3px solid black;
+}
+
+.imgHolder {
+    position: relative;
+}
+.imgHolder span {
+    position: absolute;
+    bottom: 25px;
+    background-color: black;
+    opacity: .60;
+    filter:alpha(opacity=60);
+    width: 100%;
+    font-size: 170%;
+    color: chartreuse;
+    height:40px;
+
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+
+}
+
+.left-arrow-img-icon{
+    background: url("img/left-arrow-icon.png") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width:40px;
+    height:10px;
+    border: none;
+}
+
+.right-arrow-img-icon{
+    background: url("img/right-arrow-icon.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width:40px;
+    height:10px;
+    border: none;
+}
+
+.left-arrow-icon{
+    background-color: black;
+    width:60px;
+    height:30px;
+    color : white;
+    border: none;
+}
+
+.right-arrow-icon{
+    background-color: black;
+    width:50px;
+    height:20px;
+    color : white;
+    border: none;
+}
+
+.card-margin{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    height: 70%;
+}
+
+.embossed{
+    box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5), /*bottom internal shadow*/
+    inset 0 1px 1px rgba(255,255,255,1); /*top internal highlight*/
+    -moz-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 -1px 1px rgba(0,0,0,0.5);
+}
+
+/*
+table, th, td {
+    border: 1px solid black;
+}*/
+
+table.page-body{
+    width: 100%;
+}
+table.page-body td{
+    width: 50%;
+}
+
+
+div.text {
+    margin-left: 5%;
+    padding: 0;
+    padding-bottom: 1.25em;
+}
+
+div.text label {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: block;
+    font-size: 100%;
+    padding-top: .05em;
+    padding-right: .05em;
+    width: 30%;
+    text-align: right;
+    float: left;
+}
+
+div.text input,
+div.text textarea {
+    position: relative;
+    padding-left: 2%;
+    width: calc(100% - 200px);
+    font-weight: bold;
+    margin: 0;
+    display: block;
+    font-size: 100%;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    border-color: darkgrey;
+}
+
+.topic-header{
+    position: relative;
+    margin-left: 5%;
+    font-weight: bold;
+    font-size: x-large;
+    color: green;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Gooogle Map */
+
+#map-canvas {
+    height: 500px;
+    width: 55%;
+    margin: 0;
+    padding: 5px;
+}
+
+#directions-panel {
+    position: absolute;
+    top: 5px;
+    left: 58%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    float: none;
+    width: auto;
+}
+
+.button-margin{
+    padding: 5px;
+}
+
+.footer{
+    position: fixed;
+    height: 10%
+}

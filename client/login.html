@@ -1,0 +1,63 @@
+<head>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+
+<template name="login" xmlns="http://www.w3.org/1999/html">
+    <ion-content has-header="true" class="login-background">
+    </ion-content>
+    <div class="frmLogin list centered">
+        <form>
+            <div align="middle" class="logo" >
+                <img src="/img/logo4.png" height="200" width="200">
+            </div>
+            <label class="item item-input">
+                <span class="input-label">Username</span>
+                <input name="userName" type="text">
+            </label>
+            <label class="item item-input" style="margin-top:5px">
+                <span class="input-label">Password</span>
+                <input name="userPassword" type="password">
+            </label>
+            <button class="button button-light btn-centered" type="submit">
+                Login
+            </button>
+        </form>
+    </div>
+</template>
+
+<template name="overview">
+    <div class="left-arrow-p1 bar bar-header login-background" style="position: fixed">
+        <h1 class="title header-font" style="font-size:170%">Hello {{userName}} !</h1>
+    </div>
+    <div>
+        <table class="overview">
+            <tr>
+                <td>
+                    <div class="imgHolder">
+                        <img class="newTask" src="img/request.jpg">
+                        <span>{{requests}}     Requests</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="imgHolder">
+                        <img class="acceptedTask" src="img/worker-tool.jpg">
+                        <span>{{jobs}}    Jobs</span>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</template>
+
+<template name="temp">
+    <ion-nav-buttons side="left">
+        <button class="button">
+            LeftButton!
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button">
+            RightButton!
+        </button>
+    </ion-nav-buttons>
+</template>

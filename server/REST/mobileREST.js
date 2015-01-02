@@ -6,10 +6,10 @@
 // api:      http://localhost:3100/api/update/post/:postId
 // example:  http://localhost:3100/api/update/post/314159
 Router.route('/api/newTask', function(){
-    console.log('receive Data');
-    console.log(this.request.body);
-    console.log(this.request.body.taskId);
-    console.log(this.request.body.empNo);
+    //console.log('receive Data');
+    //console.log(this.request.body);
+    //console.log(this.request.body.taskId);
+    //console.log(this.request.body.empNo);
 
     this.response.statusCode = 200;
     this.response.setHeader("Content-Type", "application/json");
@@ -34,7 +34,7 @@ Router.route('/api/newTask', function(){
             completionTime:0,
             location:this.request.body.location,
             lat:this.request.body.lat,
-            lon:this.request.body.lon,
+            lng:this.request.body.lng,
             status:this.request.body.status,
             desc: this.request.body.desc,
             severity:this.request.body.severity

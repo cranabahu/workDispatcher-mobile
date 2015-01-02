@@ -205,6 +205,8 @@ div.text textarea {
     padding: 5px;
     float: none;
     width: auto;
+    overflow: auto;
+    height: 100%;
 }
 
 .button-margin{

@@ -10,6 +10,7 @@ Session.setDefault("empLon","");
 Session.setDefault("currentPage","");
 Session.setDefault("selectedTask","");
 Session.setDefault("contactTaskId","");
+Session.setDefault("contactFrom","");
 Session.setDefault("photo",null);
 
 
@@ -17,14 +18,10 @@ window.plugin.notification.local.onclick = function (id, state, json) {
   var respJson = JSON.parse(json);
   Meteor.call('removeNotify',respJson["_id"]);
   window.plugin.notification.local.cancel(id);
-  console.log ("id: " + id + " || state: " + state + "|| json: " + json);
+  //console.log ("id: " + id + " || state: " + state + "|| json: " + json);
 };
 
 //#############Login######################################
-
-Meteor.startup(function(){
-
-});
 
 Template.login.events({
   'submit .frmLogin':function(event){
@@ -61,7 +58,7 @@ Template.login.events({
   }
 });
 
-//#############Overview######################################
+//############# Overview ######################################
 
 Template.overview.helpers({
   'userName':function(){
@@ -69,6 +66,18 @@ Template.overview.helpers({
   },
 
   'requests':function(){
+    var empNoVar = Session.get("empNo");
+    if (NotificationList.find({empNo:empNoVar}).count() > 0){
+      var task = NotificationList.findOne({empNo:empNoVar});
+      window.plugin.notification.local.add(
+          {
+            id: 1,
+            title: 'You got a New Job',
+            message: 'Task '+ task.taskId +' dispatch to you!',
+            json: task,
+            led: 'A0FF05'
+          });
+    }
     return TaskDispatchList.find({name:Session.get("userName"), status:"Dispatched"}).count();
   },
 
